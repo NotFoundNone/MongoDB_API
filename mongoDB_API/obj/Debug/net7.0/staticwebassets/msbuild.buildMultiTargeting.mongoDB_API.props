@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/mongoDB_API.props" />
+</Project>
