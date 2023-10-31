@@ -9,6 +9,9 @@ public class User
     [BsonRepresentation(BsonType.ObjectId)]
     public string? Id { get; set; }
     
+    [BsonElement("index")]
+    public int Index { get; set; }
+    
     [BsonElement("firstname")]
     public string Firstname { get; set; } = null!;
 

@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Mvc;
 public class PhonesController : ControllerBase
 {
     private readonly PhonesService _phonesService;
-    private readonly UsersService _usersService;
 
     public PhonesController(PhonesService phonesService) =>
         _phonesService = phonesService;
@@ -61,23 +60,8 @@ public class PhonesController : ControllerBase
         return NoContent();
     }
 
- //   [HttpDelete("{id:length(24)}")]
- //   public async Task<IActionResult> Delete(string id)
-  //  {
-  //      var phone = await _phonesService.GetAsync(id);
-
-  //      if (phone is null)
-  //      {
-  //          return NotFound();
-   //     }
-
-    //    await _phonesService.RemoveAsync(id);
-
-     //   return NoContent();
-   // }
-
     [HttpDelete("{id:length(24)}")]
-    public async Task<IActionResult> DeleteCascade(string id)
+    public async Task<IActionResult> Delete(string id)
     {
         var phone = await _phonesService.GetAsync(id);
 
@@ -86,17 +70,8 @@ public class PhonesController : ControllerBase
             return NotFound();
         }
 
-        string userId = phone.User.Id;
-        
-        if (userId is null)
-        {
-            return NotFound();
-        }
-        
         await _phonesService.RemoveAsync(id);
-        
-        await _usersService.RemoveAsync(userId);
 
-        return NoContent();
-    }
+       return NoContent();
+   }
 }

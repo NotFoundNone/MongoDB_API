@@ -17,5 +17,5 @@ public class Phone
     public Manufacturer Manufacturer { get; set; } = null!;
 
     [BsonElement("user")]
-    public User User { get; set; } = null!;
+    public User User { get; set; }
 }

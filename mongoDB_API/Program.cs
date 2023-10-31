@@ -8,9 +8,6 @@ builder.Services.Configure<PhoneStoreDatabaseSettings>(
     builder.Configuration.GetSection("PhoneStoreDatabase"));
 
 builder.Services.AddSingleton<PhonesService>();
-builder.Services.AddSingleton<UsersService>();
-builder.Services.AddSingleton<ManufacturersService>();
-
 
 builder.Services.AddControllers()
     .AddJsonOptions(
