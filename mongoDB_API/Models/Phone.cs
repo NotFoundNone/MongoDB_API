@@ -3,12 +3,8 @@ namespace mongoDB_API.Models;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-public class Phone
+public class Phone : BaseEntity
 {
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; set; }
-    
     [BsonElement("model")]
     public string Model { get; set; } = null!;
 
@@ -17,4 +13,5 @@ public class Phone
 
     [BsonElement("user")]
     public User User { get; set; }
+    
 }

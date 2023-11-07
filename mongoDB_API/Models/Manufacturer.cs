@@ -3,12 +3,8 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace mongoDB_API.Models;
 
-public class Manufacturer
+public class Manufacturer : BaseEntity
 {
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; set; }
-
     [BsonElement("name")]
     public string Name { get; set; } = null!;
 

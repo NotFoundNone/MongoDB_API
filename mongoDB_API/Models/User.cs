@@ -3,12 +3,8 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace mongoDB_API.Models;
 
-public class User
+public class User : BaseEntity
 {
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; set; }
-    
     [BsonElement("index")]
     public int Index { get; set; }
     
